@@ -12,6 +12,7 @@ jobs:
         run: | 
           pwd
           ls -la
+          sudo apt install git -y
 
       - name: Checkout
         uses: rajkumar25maurya/raj-js@a8956661d70509a8a7d8271a65c41f8327fec526
