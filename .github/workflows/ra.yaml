@@ -12,6 +12,14 @@ jobs:
         run: | 
           pwd
           ls -la
+
+      - name: Checkout
+        uses: rajkumar25maurya/raj-js@a8956661d70509a8a7d8271a65c41f8327fec526
+      - name: After checkout list the file
+        run: | 
+          pwd
+          ls -l 
+
       - name: simple JS Action
         id: Ansh
         uses: rajkumar25maurya/raj-js@a8956661d70509a8a7d8271a65c41f8327fec526
