@@ -8,6 +8,10 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: List Files
+        run: | 
+          pwd
+          ls
       - name: simple JS Action
         id: Ansh
         uses: rajkumar25maurya/raj-js@a8956661d70509a8a7d8271a65c41f8327fec526
