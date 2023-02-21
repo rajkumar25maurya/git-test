@@ -1,34 +1,17 @@
-name: shell commands
+name: Actions workflow
+
 
 on: [push]
 
+
 jobs:
-  run-shell-command:
+  run-github-actions:
     runs-on: ubuntu-latest
-    needs: [ 'run-windows-command' ]
-    steps:  
-    -   name: echo a string
-        run: echo "Hello Shyam"
-    
-    -   name: echo multiline script
-        run: |
-          node -v
-          npm -v
-          uname -r 
-    
-    - name: Python command
-      run: |
-        import platform
-        print(platform.processor())
-      shell: python
-
-  run-windows-command:
-    runs-on: windows-latest
-    # needs: ['run-shell-command']
     steps:
-      - name: Directory Powershell
-        run: Get-Location
-
-      - name: Directory Bash
-        run: pwd
-        shell: bash
+      - name: simple JS Action
+        id: Ansh
+        uses: rajkumar25maurya/raj-js@a8956661d70509a8a7d8271a65c41f8327fec526
+        with:
+          who-to-greet: Raj
+      - name: Lo Greetting time
+        run: echo "${{ steps.Ansh.outputs.time }}"
