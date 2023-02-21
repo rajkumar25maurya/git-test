@@ -1,17 +1,16 @@
 name: Actions workflow
 
 
-on: [push]
-
+on: [ push, pull_request]
 
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
-        run: | 
+      - name: list Files
+        run: |
           pwd
-          ls -la
+          ls
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
@@ -19,15 +18,16 @@ jobs:
 
       - name: Checkout
         uses: Actions/checkout@v2
-      - name: After checkout list the file
-        run: | 
+      - name: after checkout List the Files
+        run: |
           pwd
-          ls -l 
-
+          ls -la
+      
       - name: simple JS Action
         id: Ansh
         uses: rajkumar25maurya/raj-js@a8956661d70509a8a7d8271a65c41f8327fec526
         with:
           who-to-greet: Raj
-      - name: Lo Greetting time
+      
+      - name: Log Greeting Time
         run: echo "${{ steps.Ansh.outputs.time }}"
